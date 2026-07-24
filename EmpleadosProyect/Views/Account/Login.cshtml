@@ -1,0 +1,23 @@
+﻿@model EmpleadosApp.Models.DTOs.LoginDto
+@{
+    ViewData["Title"] = "Iniciar sesión";
+    Layout = "_Layout";
+}
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <h3 class="mb-3">Iniciar sesión</h3>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <form asp-action="Login" method="post">
+            <div class="mb-3">
+                <label class="form-label">Usuario</label>
+                <input asp-for="Username" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Contraseña</label>
+                <input asp-for="Password" type="password" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+        </form>
+        <p class="text-muted mt-3 small">Usuarios de prueba: <b>admin / Admin123!</b> · <b>rrhh / Rrhh123!</b></p>
+    </div>
+</div>

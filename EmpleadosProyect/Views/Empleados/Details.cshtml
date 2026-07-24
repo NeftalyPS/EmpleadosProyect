@@ -1,0 +1,43 @@
+﻿@model Empleado
+@{
+    ViewData["Title"] = "Detalle del empleado";
+}
+<h3>Detalle del empleado</h3>
+<div class="row">
+    <div class="col-md-3">
+        @if (!string.IsNullOrEmpty(Model.FotoRuta))
+        {
+            <img src="@Model.FotoRuta" class="img-fluid rounded" />
+        }
+    </div>
+    <div class="col-md-9">
+        <dl class="row">
+            <dt class="col-sm-3">Nombre completo</dt>
+            <dd class="col-sm-9">@Model.Nombre @Model.Apellido</dd>
+            <dt class="col-sm-3">Departamento</dt>
+            <dd class="col-sm-9">@Model.Departamento?.Nombre</dd>
+            <dt class="col-sm-3">Puesto</dt>
+            <dd class="col-sm-9">@Model.Puesto</dd>
+            <dt class="col-sm-3">Salario</dt>
+            <dd class="col-sm-9">@Model.Salario.ToString("C")</dd>
+            <dt class="col-sm-3">Fecha de nacimiento</dt>
+            <dd class="col-sm-9">@Model.FechaNacimiento.ToShortDateString()</dd>
+            <dt class="col-sm-3">Fecha de contratación</dt>
+            <dd class="col-sm-9">@Model.FechaContratacion.ToShortDateString()</dd>
+            @if (Model.FechaTerminacion != null)
+            {
+                <dt class="col-sm-3">Fecha de terminación</dt>
+                <dd class="col-sm-9">@Model.FechaTerminacion.Value.ToShortDateString()</dd>
+            }
+            <dt class="col-sm-3">Dirección</dt>
+            <dd class="col-sm-9">@Model.Direccion</dd>
+            <dt class="col-sm-3">Teléfono</dt>
+            <dd class="col-sm-9">@Model.Telefono</dd>
+            <dt class="col-sm-3">Correo</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+            <dt class="col-sm-3">Estado</dt>
+            <dd class="col-sm-9">@Model.Estado</dd>
+        </dl>
+        <a asp-action="Index" class="btn btn-secondary">Volver</a>
+    </div>
+</div>
